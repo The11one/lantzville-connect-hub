@@ -42,12 +42,14 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">L</span>
-            </div>
+            <img 
+              src="/lovable-uploads/fad52cb7-5273-467d-9c4e-b4f5d24bd9d7.png" 
+              alt="District of Lantzville Logo" 
+              className="w-12 h-12 object-contain"
+            />
             <div className="hidden sm:block">
-              <div className="text-lg font-bold text-foreground">District of Lantzville</div>
-              <div className="text-xs text-muted-foreground">Connecting Community</div>
+              <div className="text-lg font-proxima font-bold text-foreground">District of Lantzville</div>
+              <div className="text-xs font-calibri text-horizon font-medium">LoveLifeHere</div>
             </div>
           </Link>
 

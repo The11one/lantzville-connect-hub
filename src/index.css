@@ -3,51 +3,55 @@
 @tailwind utilities;
 
 /* Lantzville Municipal Website Design System
-All colors are HSL and themed for professional government use.
-Colors inspired by BC's coastal nature - ocean blues and forest greens.
+Official Lantzville Brand Colors - HSL format for design system consistency
+Brand messaging: "Lovable, Livable Lantzville" - "LoveLifeHere"
 */
 
 @layer base {
   :root {
-    /* Main brand colors - Ocean and Forest theme */
-    --primary: 203 89% 24%;              /* Deep ocean blue */
+    /* Official Lantzville Brand Colors */
+    --primary: 265 27% 45%;              /* Blackberry #5A5378 */
     --primary-foreground: 210 40% 98%;   /* Clean white */
-    --primary-hover: 203 89% 20%;        /* Darker blue on hover */
+    --primary-hover: 265 27% 40%;        /* Darker Blackberry */
     
-    /* Secondary colors */
-    --secondary: 158 44% 35%;            /* Forest green */
+    /* Secondary brand colors */
+    --secondary: 203 40% 35%;            /* Storm #34657F */
     --secondary-foreground: 210 40% 98%; /* Clean white */
-    --secondary-hover: 158 44% 30%;      /* Darker green */
+    --secondary-hover: 203 40% 30%;      /* Darker Storm */
     
-    /* Neutral colors */
-    --background: 210 20% 98%;           /* Soft off-white */
-    --foreground: 215 25% 27%;           /* Dark blue-gray */
+    /* Accent brand colors */
+    --horizon: 188 100% 35%;             /* Horizon #00A5B5 */
+    --wild-rose: 354 89% 63%;            /* Wild Rose #F04B5D */
+    --gold: 53 61% 47%;                  /* Gold #C4B330 */
+    --light-gray: 180 6% 82%;            /* Light Gray #CFD3D3 */
     
     /* Surface colors */
+    --background: 210 20% 98%;           /* Soft off-white */
+    --foreground: 265 27% 25%;           /* Dark based on Blackberry */
     --card: 0 0% 100%;                   /* Pure white cards */
-    --card-foreground: 215 25% 27%;     /* Dark text on cards */
+    --card-foreground: 265 27% 25%;      /* Dark text on cards */
     
-    /* Interactive elements */
-    --muted: 210 40% 94%;                /* Light gray */
-    --muted-foreground: 215 15% 47%;     /* Medium gray text */
+    /* Interactive elements using brand colors */
+    --muted: 180 6% 90%;                 /* Light gray variant */
+    --muted-foreground: 265 15% 47%;     /* Medium gray text */
     
-    --accent: 43 96% 89%;                /* Warm yellow for alerts */
-    --accent-foreground: 215 25% 27%;    /* Dark text on yellow */
+    --accent: 188 100% 90%;              /* Light Horizon for backgrounds */
+    --accent-foreground: 265 27% 25%;    /* Dark text on light accent */
     
-    /* Status colors */
-    --success: 142 71% 45%;              /* Success green */
+    /* Status colors aligned with brand */
+    --success: 188 100% 35%;             /* Using Horizon for success */
     --success-foreground: 210 40% 98%;   /* White text */
     
-    --warning: 38 92% 50%;               /* Warning orange */
-    --warning-foreground: 215 25% 27%;   /* Dark text */
+    --warning: 53 61% 47%;               /* Using Gold for warnings */
+    --warning-foreground: 265 27% 25%;   /* Dark text */
     
-    --destructive: 0 84% 60%;            /* Error red */
+    --destructive: 354 89% 63%;          /* Using Wild Rose for errors */
     --destructive-foreground: 210 40% 98%; /* White text */
     
     /* Borders and inputs */
-    --border: 214 32% 91%;               /* Light border */
-    --input: 214 32% 91%;                /* Input border */
-    --ring: 203 89% 24%;                 /* Focus ring - primary color */
+    --border: 180 6% 85%;                /* Light gray border */
+    --input: 180 6% 85%;                 /* Input border */
+    --ring: 265 27% 45%;                 /* Focus ring - Blackberry */
     
     /* Border radius */
     --radius: 0.5rem;

@@ -93,19 +93,22 @@ export default function Home() {
                style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${heroImage})` }}>
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="container mx-auto px-4 text-center text-white">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Welcome to Lantzville
+            <h1 className="text-4xl md:text-6xl font-proxima font-bold mb-6">
+              Lovable, Livable Lantzville
             </h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-              A vibrant coastal community where nature meets neighborly spirit. 
-              Discover services, stay informed, and connect with your community.
+            <p className="text-xl md:text-2xl font-calibri mb-8 max-w-3xl mx-auto">
+              A friendly, laid-back community perfect for families and outdoor adventures. 
+              Some spend half their lives trying to escape a small town and the other half trying to get back to one.
             </p>
+            <div className="text-lg md:text-xl font-proxima text-horizon font-semibold mb-8">
+              #LoveLifeHere
+            </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-primary hover:bg-primary-hover text-primary-foreground">
+              <Button size="lg" className="bg-primary hover:bg-primary-hover text-primary-foreground font-proxima">
                 Explore Services
                 <ChevronRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-foreground">
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-foreground font-proxima">
                 Contact Us
               </Button>
             </div>
@@ -116,21 +119,21 @@ export default function Home() {
       {/* Quick Links Section */}
       <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Quick Access</h2>
+          <h2 className="text-3xl font-proxima font-bold text-center mb-12">Quick Access</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {quickLinks.map((link) => (
               <Link key={link.title} to={link.href} className="group">
                 <Card className="h-full transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                   <CardHeader className="text-center">
-                    <div className={`w-16 h-16 ${link.color} rounded-full flex items-center justify-center mx-auto mb-4`}>
-                      <link.icon className="h-8 w-8 text-white" />
-                    </div>
-                    <CardTitle className="group-hover:text-primary transition-colors">
-                      {link.title}
-                    </CardTitle>
+                  <div className={`w-16 h-16 ${link.color} rounded-full flex items-center justify-center mx-auto mb-4`}>
+                    <link.icon className="h-8 w-8 text-white" />
+                  </div>
+                  <CardTitle className="group-hover:text-primary transition-colors font-proxima">
+                    {link.title}
+                  </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription className="text-center">
+                    <CardDescription className="text-center font-calibri">
                       {link.description}
                     </CardDescription>
                   </CardContent>
@@ -147,8 +150,8 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Community News */}
             <div>
-              <div className="flex items-center justify-between mb-8">
-                <h2 className="text-3xl font-bold">Community News</h2>
+                <div className="flex items-center justify-between mb-8">
+                  <h2 className="text-3xl font-proxima font-bold">Community News</h2>
                 <Button variant="outline" asChild>
                   <Link to="/news">View All News</Link>
                 </Button>
@@ -163,12 +166,12 @@ export default function Home() {
                           {new Date(article.date).toLocaleDateString()}
                         </span>
                       </div>
-                      <CardTitle className="text-xl hover:text-primary transition-colors cursor-pointer">
-                        {article.title}
-                      </CardTitle>
+                    <CardTitle className="text-xl hover:text-primary transition-colors cursor-pointer font-proxima">
+                      {article.title}
+                    </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-muted-foreground">{article.excerpt}</p>
+                      <p className="text-muted-foreground font-calibri">{article.excerpt}</p>
                     </CardContent>
                   </Card>
                 ))}
@@ -177,8 +180,8 @@ export default function Home() {
 
             {/* Upcoming Events */}
             <div>
-              <div className="flex items-center justify-between mb-8">
-                <h2 className="text-3xl font-bold">Upcoming Events</h2>
+                <div className="flex items-center justify-between mb-8">
+                  <h2 className="text-3xl font-proxima font-bold">Upcoming Events</h2>
                 <Button variant="outline" asChild>
                   <Link to="/events">View Calendar</Link>
                 </Button>
@@ -197,12 +200,12 @@ export default function Home() {
                           </div>
                         </div>
                         <div className="flex-1">
-                          <h3 className="font-semibold text-lg mb-1">{event.title}</h3>
-                          <div className="flex items-center text-sm text-muted-foreground mb-1">
+                          <h3 className="font-semibold text-lg mb-1 font-proxima">{event.title}</h3>
+                          <div className="flex items-center text-sm text-muted-foreground mb-1 font-calibri">
                             <Calendar className="h-4 w-4 mr-1" />
                             {event.time}
                           </div>
-                          <div className="flex items-center text-sm text-muted-foreground">
+                          <div className="flex items-center text-sm text-muted-foreground font-calibri">
                             <MapPin className="h-4 w-4 mr-1" />
                             {event.location}
                           </div>
@@ -220,19 +223,19 @@ export default function Home() {
       {/* Newsletter Signup */}
       <section className="py-16 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Stay Connected</h2>
-          <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+          <h2 className="text-3xl font-proxima font-bold mb-4">Stay Connected with Lantzville</h2>
+          <p className="text-xl font-calibri mb-8 opacity-90 max-w-2xl mx-auto">
             Subscribe to our newsletter to receive important updates, 
-            community news, and event notifications.
+            community news, and event notifications. LoveLifeHere with us!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-md text-foreground"
+              className="flex-1 px-4 py-3 rounded-md text-foreground font-calibri"
               aria-label="Email address"
             />
-            <Button variant="secondary" size="lg">
+            <Button variant="secondary" size="lg" className="font-proxima">
               Subscribe
             </Button>
           </div>

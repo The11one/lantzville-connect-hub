@@ -18,6 +18,11 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'proxima': ['Proxima Nova', 'system-ui', 'sans-serif'],
+				'calibri': ['Calibri', 'system-ui', 'sans-serif'],
+				'georgia': ['Georgia', 'serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -34,6 +39,11 @@ export default {
 					foreground: 'hsl(var(--secondary-foreground))',
 					hover: 'hsl(var(--secondary-hover))'
 				},
+				// Official Lantzville Brand Colors
+				horizon: 'hsl(var(--horizon))',
+				'wild-rose': 'hsl(var(--wild-rose))',
+				gold: 'hsl(var(--gold))',
+				'light-gray': 'hsl(var(--light-gray))',
 				success: {
 					DEFAULT: 'hsl(var(--success))',
 					foreground: 'hsl(var(--success-foreground))'

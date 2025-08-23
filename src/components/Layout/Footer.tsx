@@ -54,7 +54,17 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Contact Information */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Contact Us</h3>
+            <div className="flex items-center space-x-3 mb-4">
+              <img 
+                src="/lovable-uploads/fad52cb7-5273-467d-9c4e-b4f5d24bd9d7.png" 
+                alt="District of Lantzville Logo" 
+                className="w-10 h-10 object-contain"
+              />
+              <div>
+                <h3 className="font-proxima font-semibold text-lg">District of Lantzville</h3>
+                <p className="text-sm font-calibri text-horizon font-medium">LoveLifeHere</p>
+              </div>
+            </div>
             <div className="space-y-3">
               <div className="flex items-start space-x-3">
                 <MapPin className="h-4 w-4 mt-1 flex-shrink-0" />

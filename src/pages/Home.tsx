@@ -4,7 +4,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Link } from "react-router-dom";
-import heroImage from "@/assets/lantzville-hero.jpg";
+import heroImage from "@/assets/lantzville-aerial.jpg";
+import sunsetImage from "@/assets/lantzville-sunset.jpg";
+import beachImage from "@/assets/lantzville-beach.jpg";
 
 const quickLinks = [
   {
@@ -85,6 +87,21 @@ const upcomingEvents = [
   }
 ];
 
+const getQuickLinkUrl = (title: string) => {
+  switch (title) {
+    case "Pay Bills Online":
+      return "/services#bills";
+    case "Report an Issue":
+      return "/services#report";
+    case "Council Meetings":
+      return "/council";
+    case "Forms & Permits":
+      return "/forms";
+    default:
+      return "/services";
+  }
+};
+
 export default function Home() {
   return (
     <div className="min-h-screen">
@@ -104,12 +121,16 @@ export default function Home() {
               #LoveLifeHere
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-primary hover:bg-primary-hover text-primary-foreground font-proxima">
-                Explore Services
-                <ChevronRight className="ml-2 h-5 w-5" />
+              <Button size="lg" asChild className="bg-primary hover:bg-primary-hover text-primary-foreground font-proxima transition-all duration-300 hover:shadow-lg">
+                <Link to="/services">
+                  Explore Services
+                  <ChevronRight className="ml-2 h-5 w-5" />
+                </Link>
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-foreground font-proxima">
-                Contact Us
+              <Button size="lg" asChild className="bg-horizon hover:bg-horizon/90 text-white font-proxima transition-all duration-300 hover:shadow-lg hover:scale-105">
+                <Link to="/services#contact">
+                  Contact Us
+                </Link>
               </Button>
             </div>
           </div>
@@ -122,7 +143,7 @@ export default function Home() {
           <h2 className="text-3xl font-proxima font-bold text-center mb-12">Quick Access</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {quickLinks.map((link) => (
-              <Link key={link.title} to={link.href} className="group">
+              <Link key={link.title} to={getQuickLinkUrl(link.title)} className="group">
                 <Card className="h-full transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                   <CardHeader className="text-center">
                   <div className={`w-16 h-16 ${link.color} rounded-full flex items-center justify-center mx-auto mb-4`}>
@@ -152,8 +173,8 @@ export default function Home() {
             <div>
                 <div className="flex items-center justify-between mb-8">
                   <h2 className="text-3xl font-proxima font-bold">Community News</h2>
-                <Button variant="outline" asChild>
-                  <Link to="/news">View All News</Link>
+                <Button variant="outline" asChild className="hover:bg-primary hover:text-primary-foreground transition-colors">
+                  <Link to="/about#news">View All News</Link>
                 </Button>
               </div>
               <div className="space-y-6">
@@ -166,9 +187,11 @@ export default function Home() {
                           {new Date(article.date).toLocaleDateString()}
                         </span>
                       </div>
-                    <CardTitle className="text-xl hover:text-primary transition-colors cursor-pointer font-proxima">
-                      {article.title}
-                    </CardTitle>
+                    <Link to={`/about#news-${article.id}`}>
+                      <CardTitle className="text-xl hover:text-primary transition-colors cursor-pointer font-proxima">
+                        {article.title}
+                      </CardTitle>
+                    </Link>
                     </CardHeader>
                     <CardContent>
                       <p className="text-muted-foreground font-calibri">{article.excerpt}</p>
@@ -182,37 +205,39 @@ export default function Home() {
             <div>
                 <div className="flex items-center justify-between mb-8">
                   <h2 className="text-3xl font-proxima font-bold">Upcoming Events</h2>
-                <Button variant="outline" asChild>
+                <Button variant="outline" asChild className="hover:bg-primary hover:text-primary-foreground transition-colors">
                   <Link to="/events">View Calendar</Link>
                 </Button>
               </div>
               <div className="space-y-4">
                 {upcomingEvents.map((event) => (
-                  <Card key={event.id} className="hover:shadow-md transition-shadow">
-                    <CardContent className="p-6">
-                      <div className="flex items-start space-x-4">
-                        <div className="bg-primary text-primary-foreground rounded-lg p-3 text-center min-w-[60px]">
-                          <div className="text-sm font-medium">
-                            {new Date(event.date).toLocaleDateString('en-US', { month: 'short' })}
+                  <Link key={event.id} to={`/events#event-${event.id}`}>
+                    <Card className="hover:shadow-md transition-shadow cursor-pointer hover:bg-accent/50">
+                      <CardContent className="p-6">
+                        <div className="flex items-start space-x-4">
+                          <div className="bg-primary text-primary-foreground rounded-lg p-3 text-center min-w-[60px]">
+                            <div className="text-sm font-medium">
+                              {new Date(event.date).toLocaleDateString('en-US', { month: 'short' })}
+                            </div>
+                            <div className="text-xl font-bold">
+                              {new Date(event.date).getDate()}
+                            </div>
                           </div>
-                          <div className="text-xl font-bold">
-                            {new Date(event.date).getDate()}
+                          <div className="flex-1">
+                            <h3 className="font-semibold text-lg mb-1 font-proxima hover:text-primary transition-colors">{event.title}</h3>
+                            <div className="flex items-center text-sm text-muted-foreground mb-1 font-calibri">
+                              <Calendar className="h-4 w-4 mr-1" />
+                              {event.time}
+                            </div>
+                            <div className="flex items-center text-sm text-muted-foreground font-calibri">
+                              <MapPin className="h-4 w-4 mr-1" />
+                              {event.location}
+                            </div>
                           </div>
                         </div>
-                        <div className="flex-1">
-                          <h3 className="font-semibold text-lg mb-1 font-proxima">{event.title}</h3>
-                          <div className="flex items-center text-sm text-muted-foreground mb-1 font-calibri">
-                            <Calendar className="h-4 w-4 mr-1" />
-                            {event.time}
-                          </div>
-                          <div className="flex items-center text-sm text-muted-foreground font-calibri">
-                            <MapPin className="h-4 w-4 mr-1" />
-                            {event.location}
-                          </div>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
+                      </CardContent>
+                    </Card>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -221,10 +246,11 @@ export default function Home() {
       </section>
 
       {/* Newsletter Signup */}
-      <section className="py-16 bg-primary text-primary-foreground">
+      <section className="py-16 bg-cover bg-center bg-no-repeat relative" 
+               style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${sunsetImage})` }}>
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-proxima font-bold mb-4">Stay Connected with Lantzville</h2>
-          <p className="text-xl font-calibri mb-8 opacity-90 max-w-2xl mx-auto">
+          <h2 className="text-3xl font-proxima font-bold mb-4 text-white">Stay Connected with Lantzville</h2>
+          <p className="text-xl font-calibri mb-8 opacity-90 max-w-2xl mx-auto text-white">
             Subscribe to our newsletter to receive important updates, 
             community news, and event notifications. LoveLifeHere with us!
           </p>
@@ -232,13 +258,31 @@ export default function Home() {
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-md text-foreground font-calibri"
+              className="flex-1 px-4 py-3 rounded-md text-foreground font-calibri focus:ring-2 focus:ring-horizon"
               aria-label="Email address"
             />
-            <Button variant="secondary" size="lg" className="font-proxima">
+            <Button className="bg-horizon hover:bg-horizon/90 text-white font-proxima transition-all duration-300 hover:shadow-lg" size="lg">
               Subscribe
             </Button>
           </div>
+        </div>
+      </section>
+
+      {/* Community Showcase */}
+      <section className="py-16 bg-cover bg-center bg-no-repeat relative" 
+               style={{ backgroundImage: `linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url(${beachImage})` }}>
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-proxima font-bold mb-4 text-primary">Discover Natural Beauty</h2>
+          <p className="text-lg font-calibri mb-8 max-w-2xl mx-auto text-foreground">
+            From pristine beaches to scenic trails, Lantzville offers endless opportunities 
+            for outdoor adventures and peaceful moments in nature.
+          </p>
+          <Button asChild className="bg-primary hover:bg-primary-hover text-primary-foreground font-proxima">
+            <Link to="/about#attractions">
+              Explore Attractions
+              <ChevronRight className="ml-2 h-5 w-5" />
+            </Link>
+          </Button>
         </div>
       </section>
     </div>

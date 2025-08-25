@@ -31,8 +31,8 @@ export function Header() {
             <span className="font-medium">Weather Advisory:</span>
             <span>High wind warning in effect until 6 PM today.</span>
           </div>
-          <Button variant="ghost" size="sm" className="text-warning-foreground hover:bg-warning-foreground/10">
-            View Details
+          <Button variant="ghost" size="sm" asChild className="text-warning-foreground hover:bg-warning-foreground/10">
+            <a href="/weather-advisory">View Details</a>
           </Button>
         </div>
       </div>

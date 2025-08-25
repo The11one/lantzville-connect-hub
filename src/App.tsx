@@ -10,6 +10,13 @@ import Services from "./pages/Services";
 import Forms from "./pages/Forms";
 import Events from "./pages/Events";
 import About from "./pages/About";
+import PayBills from "./pages/PayBills";
+import ReportIssue from "./pages/ReportIssue";
+import WeatherAdvisory from "./pages/WeatherAdvisory";
+import Building from "./pages/Building";
+import Parks from "./pages/Parks";
+import PublicWorks from "./pages/PublicWorks";
+import Emergency from "./pages/Emergency";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +35,13 @@ const App = () => (
             <Route path="/forms" element={<Forms />} />
             <Route path="/events" element={<Events />} />
             <Route path="/about" element={<About />} />
+            <Route path="/pay-bills" element={<PayBills />} />
+            <Route path="/report-issue" element={<ReportIssue />} />
+            <Route path="/weather-advisory" element={<WeatherAdvisory />} />
+            <Route path="/services/building" element={<Building />} />
+            <Route path="/services/parks" element={<Parks />} />
+            <Route path="/services/public-works" element={<PublicWorks />} />
+            <Route path="/services/emergency" element={<Emergency />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

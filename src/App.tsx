@@ -17,6 +17,12 @@ import Building from "./pages/Building";
 import Parks from "./pages/Parks";
 import PublicWorks from "./pages/PublicWorks";
 import Emergency from "./pages/Emergency";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Disclaimer from "./pages/Disclaimer";
+import Accessibility from "./pages/Accessibility";
+import Bylaws from "./pages/Bylaws";
+import StrategicPlan from "./pages/StrategicPlan";
+import Newsletter from "./pages/Newsletter";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -42,6 +48,12 @@ const App = () => (
             <Route path="/services/parks" element={<Parks />} />
             <Route path="/services/public-works" element={<PublicWorks />} />
             <Route path="/services/emergency" element={<Emergency />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/disclaimer" element={<Disclaimer />} />
+            <Route path="/accessibility" element={<Accessibility />} />
+            <Route path="/bylaws" element={<Bylaws />} />
+            <Route path="/about/strategic-plan" element={<StrategicPlan />} />
+            <Route path="/newsletter" element={<Newsletter />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

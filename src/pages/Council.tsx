@@ -246,9 +246,11 @@ export default function Council() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <Button variant="outline" className="w-full">
-                    <FileText className="h-4 w-4 mr-2" />
-                    View All Bylaws
+                  <Button variant="outline" className="w-full" asChild>
+                    <a href="/bylaws">
+                      <FileText className="h-4 w-4 mr-2" />
+                      View All Bylaws
+                    </a>
                   </Button>
                 </CardContent>
               </Card>
@@ -276,9 +278,11 @@ export default function Council() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <Button variant="outline" className="w-full">
-                    <FileText className="h-4 w-4 mr-2" />
-                    View Plan
+                  <Button variant="outline" className="w-full" asChild>
+                    <a href="/about/strategic-plan">
+                      <FileText className="h-4 w-4 mr-2" />
+                      View Plan
+                    </a>
                   </Button>
                 </CardContent>
               </Card>

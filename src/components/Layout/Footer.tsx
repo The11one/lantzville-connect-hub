@@ -56,7 +56,7 @@ export function Footer() {
           <div>
             <div className="flex items-center space-x-3 mb-4">
               <img 
-                src="/lovable-uploads/fad52cb7-5273-467d-9c4e-b4f5d24bd9d7.png" 
+                src="/lovable-uploads/da15074c-676b-4afc-ac6d-5406a5a647c9.png" 
                 alt="District of Lantzville Logo" 
                 className="w-10 h-10 object-contain"
               />

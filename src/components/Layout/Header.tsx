@@ -43,7 +43,7 @@ export function Header() {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <img 
-              src="/lovable-uploads/fad52cb7-5273-467d-9c4e-b4f5d24bd9d7.png" 
+              src="/lovable-uploads/da15074c-676b-4afc-ac6d-5406a5a647c9.png" 
               alt="District of Lantzville Logo" 
               className="w-12 h-12 object-contain"
             />

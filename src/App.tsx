@@ -23,6 +23,7 @@ import Accessibility from "./pages/Accessibility";
 import Bylaws from "./pages/Bylaws";
 import StrategicPlan from "./pages/StrategicPlan";
 import Newsletter from "./pages/Newsletter";
+import Calendar from "./pages/Calendar";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -41,6 +42,7 @@ const App = () => (
             <Route path="/services" element={<Services />} />
             <Route path="/forms" element={<Forms />} />
             <Route path="/events" element={<Events />} />
+            <Route path="/calendar" element={<Calendar />} />
             <Route path="/about" element={<About />} />
             <Route path="/pay-bills" element={<PayBills />} />
             <Route path="/report-issue" element={<ReportIssue />} />

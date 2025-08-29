@@ -39,11 +39,11 @@ export default {
 					foreground: 'hsl(var(--secondary-foreground))',
 					hover: 'hsl(var(--secondary-hover))'
 				},
-				// Official Lantzville Brand Colors
-				horizon: 'hsl(var(--horizon))',
-				'wild-rose': 'hsl(var(--wild-rose))',
-				gold: 'hsl(var(--gold))',
-				'light-gray': 'hsl(var(--light-gray))',
+				// Coastal Community Colors
+				'ocean-teal': 'hsl(var(--ocean-teal))',
+				'coastal-sage': 'hsl(var(--coastal-sage))',
+				'sandy-beige': 'hsl(var(--sandy-beige))',
+				'driftwood': 'hsl(var(--driftwood))',
 				success: {
 					DEFAULT: 'hsl(var(--success))',
 					foreground: 'hsl(var(--success-foreground))'

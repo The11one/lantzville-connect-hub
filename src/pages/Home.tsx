@@ -14,28 +14,32 @@ const quickLinks = [
     description: "Property taxes, utilities, and permits",
     icon: FileText,
     href: "/pay-bills",
-    color: "bg-primary"
+    color: "bg-primary",
+    gradient: "from-primary to-primary/80"
   },
   {
     title: "Report an Issue",
     description: "Roads, parks, water, or other concerns",
     icon: AlertCircle,
     href: "/report-issue",
-    color: "bg-secondary"
+    color: "bg-ocean-teal",
+    gradient: "from-ocean-teal to-ocean-teal/80"
   },
   {
     title: "Council Meetings",
     description: "Agendas, minutes, and live streams",
     icon: Users,
     href: "/council/meetings",
-    color: "bg-success"
+    color: "bg-secondary",
+    gradient: "from-secondary to-secondary/80"
   },
   {
     title: "Forms & Permits",
     description: "Building permits, business licenses",
     icon: FileText,
     href: "/forms",
-    color: "bg-warning"
+    color: "bg-success",
+    gradient: "from-success to-success/80"
   }
 ];
 
@@ -106,55 +110,70 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[60vh] min-h-[500px] bg-cover bg-center bg-no-repeat" 
-               style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${heroImage})` }}>
+      <section className="relative h-[70vh] min-h-[600px] bg-cover bg-center bg-no-repeat" 
+               style={{ backgroundImage: `linear-gradient(135deg, rgba(43,95,127,0.6), rgba(64,163,179,0.4)), url(${heroImage})` }}>
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="container mx-auto px-4 text-center text-white">
-            <h1 className="text-4xl md:text-6xl font-proxima font-bold mb-6">
-              Lovable, Livable Lantzville
-            </h1>
-            <p className="text-xl md:text-2xl font-calibri mb-8 max-w-3xl mx-auto">
-              A friendly, laid-back community perfect for families and outdoor adventures. 
-              Some spend half their lives trying to escape a small town and the other half trying to get back to one.
-            </p>
-            <div className="text-lg md:text-xl font-proxima text-horizon font-semibold mb-8">
-              #LoveLifeHere
+            <div className="max-w-4xl mx-auto">
+              <h1 className="text-5xl md:text-7xl font-proxima font-bold mb-6 leading-tight">
+                Lovable, Livable 
+                <span className="block text-ocean-teal">Lantzville</span>
+              </h1>
+              <p className="text-xl md:text-2xl font-calibri mb-6 max-w-3xl mx-auto leading-relaxed opacity-95">
+                A friendly, coastal community where natural beauty meets small-town charm. 
+                Discover endless outdoor adventures and peaceful moments by the sea.
+              </p>
+              <div className="text-2xl md:text-3xl font-proxima text-ocean-teal font-bold mb-10 tracking-wide">
+                #LoveLifeHere
+              </div>
+              <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                <Button size="lg" asChild className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border border-white/30 font-proxima transition-all duration-300 hover:shadow-2xl hover:scale-105 px-8 py-4 text-lg">
+                  <Link to="/services">
+                    Explore Services
+                    <ChevronRight className="ml-2 h-6 w-6" />
+                  </Link>
+                </Button>
+                <Button size="lg" asChild className="bg-ocean-teal hover:bg-ocean-teal/90 text-white font-proxima transition-all duration-300 hover:shadow-2xl hover:scale-105 px-8 py-4 text-lg">
+                  <Link to="/services#contact">
+                    Contact Us
+                  </Link>
+                </Button>
+              </div>
             </div>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" asChild className="bg-primary hover:bg-primary-hover text-primary-foreground font-proxima transition-all duration-300 hover:shadow-lg">
-                <Link to="/services">
-                  Explore Services
-                  <ChevronRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-              <Button size="lg" asChild className="bg-horizon hover:bg-horizon/90 text-white font-proxima transition-all duration-300 hover:shadow-lg hover:scale-105">
-                <Link to="/services#contact">
-                  Contact Us
-                </Link>
-              </Button>
-            </div>
+          </div>
+        </div>
+        
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-6 h-10 border-2 border-white/60 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-white/60 rounded-full mt-2"></div>
           </div>
         </div>
       </section>
 
       {/* Quick Links Section */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-20 bg-gradient-to-br from-accent/30 to-sandy-beige/20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-proxima font-bold text-center mb-12">Quick Access</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-proxima font-bold mb-4 text-primary">Quick Access</h2>
+            <p className="text-lg text-muted-foreground font-calibri max-w-2xl mx-auto">
+              Access essential services and information with just one click
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {quickLinks.map((link) => (
               <Link key={link.title} to={getQuickLinkUrl(link.title)} className="group">
-                <Card className="h-full transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                  <CardHeader className="text-center">
-                  <div className={`w-16 h-16 ${link.color} rounded-full flex items-center justify-center mx-auto mb-4`}>
-                    <link.icon className="h-8 w-8 text-white" />
-                  </div>
-                  <CardTitle className="group-hover:text-primary transition-colors font-proxima">
-                    {link.title}
-                  </CardTitle>
+                <Card className="h-full transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border-0 shadow-lg bg-white/80 backdrop-blur-sm">
+                  <CardHeader className="text-center pb-4">
+                    <div className={`w-20 h-20 bg-gradient-to-br ${link.gradient} rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                      <link.icon className="h-10 w-10 text-white" />
+                    </div>
+                    <CardTitle className="group-hover:text-primary transition-colors font-proxima text-xl">
+                      {link.title}
+                    </CardTitle>
                   </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-center font-calibri">
+                  <CardContent className="pt-0">
+                    <CardDescription className="text-center font-calibri text-base leading-relaxed">
                       {link.description}
                     </CardDescription>
                   </CardContent>
@@ -246,24 +265,29 @@ export default function Home() {
       </section>
 
       {/* Newsletter Signup */}
-      <section className="py-16 bg-cover bg-center bg-no-repeat relative" 
-               style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${sunsetImage})` }}>
+      <section className="py-20 bg-cover bg-center bg-no-repeat relative" 
+               style={{ backgroundImage: `linear-gradient(135deg, rgba(43,95,127,0.85), rgba(64,163,179,0.75)), url(${sunsetImage})` }}>
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-proxima font-bold mb-4 text-white">Stay Connected with Lantzville</h2>
-          <p className="text-xl font-calibri mb-8 opacity-90 max-w-2xl mx-auto text-white">
-            Subscribe to our newsletter to receive important updates, 
-            community news, and event notifications. LoveLifeHere with us!
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-md text-foreground font-calibri focus:ring-2 focus:ring-horizon"
-              aria-label="Email address"
-            />
-            <Button className="bg-horizon hover:bg-horizon/90 text-white font-proxima transition-all duration-300 hover:shadow-lg" size="lg">
-              Subscribe
-            </Button>
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-4xl font-proxima font-bold mb-6 text-white">Stay Connected with Lantzville</h2>
+            <p className="text-xl font-calibri mb-10 opacity-95 leading-relaxed text-white">
+              Subscribe to our newsletter to receive important updates, 
+              community news, and event notifications. Join our coastal community!
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
+              <input
+                type="email"
+                placeholder="Enter your email address"
+                className="flex-1 px-6 py-4 rounded-xl text-foreground font-calibri focus:ring-2 focus:ring-ocean-teal focus:outline-none shadow-lg backdrop-blur-sm bg-white/95 text-lg"
+                aria-label="Email address"
+              />
+              <Button className="bg-ocean-teal hover:bg-ocean-teal/90 text-white font-proxima transition-all duration-300 hover:shadow-xl hover:scale-105 px-8 py-4 rounded-xl text-lg" size="lg">
+                Subscribe
+              </Button>
+            </div>
+            <p className="text-sm text-white/80 mt-6 font-calibri">
+              #LoveLifeHere • We respect your privacy and never share your information
+            </p>
           </div>
         </div>
       </section>

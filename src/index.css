@@ -2,59 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Lantzville Municipal Website Design System
-Official Lantzville Brand Colors - HSL format for design system consistency
+/* Lantzville Coastal Community Design System
+Modern, coastal-inspired design following Ucluelet & Ladysmith best practices
 Brand messaging: "Lovable, Livable Lantzville" - "LoveLifeHere"
 */
 
 @layer base {
   :root {
-    /* Official Lantzville Brand Colors */
-    --primary: 265 27% 45%;              /* Blackberry #5A5378 */
+    /* Coastal Primary Colors - Ocean Blues */
+    --primary: 206 60% 40%;              /* Deep Ocean Blue #2B5F7F */
     --primary-foreground: 210 40% 98%;   /* Clean white */
-    --primary-hover: 265 27% 40%;        /* Darker Blackberry */
+    --primary-hover: 206 60% 35%;        /* Darker Ocean Blue */
     
-    /* Secondary brand colors */
-    --secondary: 203 40% 35%;            /* Storm #34657F */
+    /* Coastal Secondary Colors - Sea Glass */
+    --secondary: 174 45% 45%;            /* Sea Glass #4B8B80 */
     --secondary-foreground: 210 40% 98%; /* Clean white */
-    --secondary-hover: 203 40% 30%;      /* Darker Storm */
+    --secondary-hover: 174 45% 40%;      /* Darker Sea Glass */
     
-    /* Accent brand colors */
-    --horizon: 188 100% 35%;             /* Horizon #00A5B5 */
-    --wild-rose: 354 89% 63%;            /* Wild Rose #F04B5D */
-    --gold: 53 61% 47%;                  /* Gold #C4B330 */
-    --light-gray: 180 6% 82%;            /* Light Gray #CFD3D3 */
+    /* Coastal Accent Colors */
+    --ocean-teal: 185 50% 50%;           /* Bright Teal #40A3B3 */
+    --coastal-sage: 160 25% 65%;         /* Sage Green #8FB3A3 */
+    --sandy-beige: 48 30% 85%;           /* Sandy Beige #E8E0D2 */
+    --driftwood: 25 15% 55%;             /* Driftwood Brown #968074 */
     
-    /* Surface colors */
-    --background: 210 20% 98%;           /* Soft off-white */
-    --foreground: 265 27% 25%;           /* Dark based on Blackberry */
+    /* Surface colors - Clean & Airy */
+    --background: 210 20% 98%;           /* Crisp white */
+    --foreground: 210 25% 20%;           /* Dark charcoal */
     --card: 0 0% 100%;                   /* Pure white cards */
-    --card-foreground: 265 27% 25%;      /* Dark text on cards */
+    --card-foreground: 210 25% 20%;      /* Dark text on cards */
     
-    /* Interactive elements using brand colors */
-    --muted: 180 6% 90%;                 /* Light gray variant */
-    --muted-foreground: 265 15% 47%;     /* Medium gray text */
+    /* Interactive elements */
+    --muted: 210 15% 92%;                /* Light neutral */
+    --muted-foreground: 210 15% 45%;     /* Medium gray text */
     
-    --accent: 188 100% 90%;              /* Light Horizon for backgrounds */
-    --accent-foreground: 265 27% 25%;    /* Dark text on light accent */
+    --accent: 185 50% 92%;               /* Light teal background */
+    --accent-foreground: 210 25% 20%;    /* Dark text on light accent */
     
-    /* Status colors aligned with brand */
-    --success: 188 100% 35%;             /* Using Horizon for success */
+    /* Status colors - Ocean inspired */
+    --success: 142 70% 45%;              /* Ocean Green */
     --success-foreground: 210 40% 98%;   /* White text */
     
-    --warning: 53 61% 47%;               /* Using Gold for warnings */
-    --warning-foreground: 265 27% 25%;   /* Dark text */
+    --warning: 45 85% 55%;               /* Sunset Orange */
+    --warning-foreground: 210 25% 20%;   /* Dark text */
     
-    --destructive: 354 89% 63%;          /* Using Wild Rose for errors */
+    --destructive: 355 75% 55%;          /* Coral Red */
     --destructive-foreground: 210 40% 98%; /* White text */
     
     /* Borders and inputs */
-    --border: 180 6% 85%;                /* Light gray border */
-    --input: 180 6% 85%;                 /* Input border */
-    --ring: 265 27% 45%;                 /* Focus ring - Blackberry */
+    --border: 210 15% 88%;               /* Light border */
+    --input: 210 15% 88%;                /* Input border */
+    --ring: 206 60% 40%;                 /* Focus ring - Primary blue */
     
-    /* Border radius */
-    --radius: 0.5rem;
+    /* Border radius - Softer, more organic */
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 

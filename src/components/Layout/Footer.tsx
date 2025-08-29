@@ -35,58 +35,59 @@ const footerSections = [
 
 export function Footer() {
   return (
-    <footer className="bg-primary text-primary-foreground">
-      {/* Territory Acknowledgement */}
-      <div className="bg-primary-hover py-6">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-4xl mx-auto">
-            <h3 className="font-semibold mb-2">Territory Acknowledgement</h3>
-            <p className="text-sm opacity-90">
-              The District of Lantzville acknowledges that we are located on the traditional, 
-              ancestral and unceded territory of the Snuneymuxw First Nation.
-            </p>
-          </div>
-        </div>
+    <footer className="bg-gradient-to-br from-primary to-secondary text-white py-16 relative overflow-hidden">
+      {/* Background pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-ocean-teal rounded-full -translate-x-48 -translate-y-48"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-coastal-sage rounded-full translate-x-48 translate-y-48"></div>
       </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Territory Acknowledgement */}
+        <div className="mb-12 p-8 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
+          <h3 className="font-bold mb-3 text-ocean-teal text-lg font-proxima">Territory Acknowledgement</h3>
+          <p className="text-white/90 leading-relaxed font-calibri">
+            The District of Lantzville acknowledges that we are located on the traditional, 
+            ancestral and unceded territory of the Snuneymuxw First Nation.
+          </p>
+        </div>
 
-      {/* Main Footer Content */}
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Contact Information */}
-          <div>
-            <div className="flex items-center space-x-3 mb-4">
+          <div className="space-y-6">
+            <div className="flex items-center space-x-4">
               <img 
                 src="/lovable-uploads/da15074c-676b-4afc-ac6d-5406a5a647c9.png" 
                 alt="District of Lantzville Logo" 
-                className="w-10 h-10 object-contain"
+                className="w-12 h-12 object-contain"
               />
               <div>
-                <h3 className="font-proxima font-semibold text-lg">District of Lantzville</h3>
-                <p className="text-sm font-calibri text-horizon font-medium">LoveLifeHere</p>
+                <h3 className="font-proxima font-bold text-xl text-ocean-teal">District of Lantzville</h3>
+                <p className="text-coastal-sage font-medium font-calibri">LoveLifeHere</p>
               </div>
             </div>
-            <div className="space-y-3">
+            <div className="space-y-4 text-white/90">
               <div className="flex items-start space-x-3">
-                <MapPin className="h-4 w-4 mt-1 flex-shrink-0" />
-                <div className="text-sm">
+                <MapPin className="h-5 w-5 text-ocean-teal mt-1 flex-shrink-0" />
+                <div className="font-calibri">
                   <div>7192 Lantzville Road</div>
                   <div>Lantzville, BC V0R 2H0</div>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
-                <Phone className="h-4 w-4 flex-shrink-0" />
-                <span className="text-sm">250-390-4006</span>
+                <Phone className="h-5 w-5 text-ocean-teal flex-shrink-0" />
+                <span className="font-calibri">250-390-4006</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Mail className="h-4 w-4 flex-shrink-0" />
-                <span className="text-sm">info@lantzville.ca</span>
+                <Mail className="h-5 w-5 text-ocean-teal flex-shrink-0" />
+                <span className="font-calibri">info@lantzville.ca</span>
               </div>
             </div>
 
             {/* Office Hours */}
-            <div className="mt-6">
-              <h4 className="font-medium mb-2">Office Hours</h4>
-              <div className="text-sm space-y-1">
+            <div>
+              <h4 className="font-semibold mb-3 text-coastal-sage font-proxima">Office Hours</h4>
+              <div className="text-white/90 space-y-1 font-calibri">
                 <div>Monday - Friday: 8:30 AM - 4:30 PM</div>
                 <div>Saturday - Sunday: Closed</div>
               </div>
@@ -96,13 +97,13 @@ export function Footer() {
           {/* Footer Sections */}
           {footerSections.map((section) => (
             <div key={section.title}>
-              <h3 className="font-semibold text-lg mb-4">{section.title}</h3>
-              <ul className="space-y-2">
+              <h3 className="font-bold mb-6 text-ocean-teal text-lg font-proxima">{section.title}</h3>
+              <ul className="space-y-3">
                 {section.links.map((link) => (
                   <li key={link.name}>
                     <Link
                       to={link.href}
-                      className="text-sm hover:text-accent transition-colors"
+                      className="text-white/80 hover:text-ocean-teal transition-colors font-calibri hover:underline"
                     >
                       {link.name}
                     </Link>
@@ -113,43 +114,39 @@ export function Footer() {
           ))}
         </div>
 
-        <Separator className="my-8 bg-primary-foreground/20" />
-
-        {/* Bottom Footer */}
-        <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
-          {/* Social Media */}
-          <div className="flex items-center space-x-4">
-            <span className="text-sm font-medium">Follow Us:</span>
-            <div className="flex space-x-2">
-              <Button variant="ghost" size="sm" className="text-primary-foreground hover:bg-primary-foreground/10">
-                <Facebook className="h-4 w-4" />
-                <span className="sr-only">Facebook</span>
-              </Button>
-              <Button variant="ghost" size="sm" className="text-primary-foreground hover:bg-primary-foreground/10">
-                <Twitter className="h-4 w-4" />
-                <span className="sr-only">Twitter</span>
-              </Button>
-              <Button variant="ghost" size="sm" className="text-primary-foreground hover:bg-primary-foreground/10">
-                <Instagram className="h-4 w-4" />
-                <span className="sr-only">Instagram</span>
-              </Button>
+        {/* Social Media and Legal Links */}
+        <div className="mt-12 pt-8 border-t border-white/20">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+            <div className="flex flex-col items-center md:items-start space-y-4">
+              <div className="flex space-x-6">
+                <a href="#" className="text-white/70 hover:text-ocean-teal transition-colors transform hover:scale-110">
+                  <Facebook className="h-6 w-6" />
+                </a>
+                <a href="#" className="text-white/70 hover:text-ocean-teal transition-colors transform hover:scale-110">
+                  <Twitter className="h-6 w-6" />
+                </a>
+                <a href="#" className="text-white/70 hover:text-ocean-teal transition-colors transform hover:scale-110">
+                  <Instagram className="h-6 w-6" />
+                </a>
+              </div>
+              <div className="text-ocean-teal font-bold text-lg font-proxima">
+                #LoveLifeHere
+              </div>
+            </div>
+            <div className="flex flex-wrap justify-center md:justify-end gap-8 text-sm">
+              <Link to="/privacy-policy" className="text-white/80 hover:text-ocean-teal transition-colors font-calibri hover:underline">
+                Privacy Policy
+              </Link>
+              <Link to="/disclaimer" className="text-white/80 hover:text-ocean-teal transition-colors font-calibri hover:underline">
+                Disclaimer
+              </Link>
+              <Link to="/accessibility" className="text-white/80 hover:text-ocean-teal transition-colors font-calibri hover:underline">
+                Accessibility
+              </Link>
             </div>
           </div>
-
-          {/* Legal Links */}
-          <div className="flex flex-wrap items-center gap-4 text-sm">
-            <Link to="/privacy" className="hover:text-accent transition-colors">
-              Privacy Policy
-            </Link>
-            <Link to="/disclaimer" className="hover:text-accent transition-colors">
-              Disclaimer
-            </Link>
-            <Link to="/accessibility" className="hover:text-accent transition-colors">
-              Accessibility
-            </Link>
-            <span className="text-primary-foreground/70">
-              © 2024 District of Lantzville
-            </span>
+          <div className="mt-6 text-center text-white/70 font-calibri">
+            © 2024 District of Lantzville. All rights reserved. • Lovable, Livable Lantzville
           </div>
         </div>
       </div>

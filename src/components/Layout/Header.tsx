@@ -35,14 +35,16 @@ export function Header() {
               </div>
             </div>
             <div className="flex items-center space-x-2">
-              <Button 
-                variant="outline" 
-                size="sm" 
-                className="bg-warning-foreground/10 border-warning-foreground/20 text-warning-foreground hover:bg-warning-foreground/20 text-xs font-medium"
-              >
-                View Details
-              </Button>
-              <Button variant="ghost" size="sm" className="text-warning-foreground hover:text-warning-foreground/80 p-1">
+              <Link to="/weather-advisory">
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="bg-warning-foreground/10 border-warning-foreground/20 text-warning-foreground hover:bg-warning-foreground/20 text-xs font-medium transition-all duration-200"
+                >
+                  View Details
+                </Button>
+              </Link>
+              <Button variant="ghost" size="sm" className="text-warning-foreground hover:text-warning-foreground/80 p-1 transition-colors duration-200">
                 <X className="h-4 w-4" />
               </Button>
             </div>
@@ -67,13 +69,13 @@ export function Header() {
               </div>
             </Link>
 
-            {/* Desktop Navigation - Full Width Display */}
-            <nav className="hidden lg:flex items-center space-x-1">
+            {/* Desktop Navigation - Full Horizontal Layout */}
+            <nav className="hidden lg:flex items-center space-x-2">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`text-sm font-medium transition-all duration-200 px-4 py-2.5 rounded-lg relative ${
+                  className={`text-sm font-medium transition-all duration-200 px-4 py-2.5 rounded-lg relative group ${
                     isActive(item.href)
                       ? 'text-primary bg-accent font-semibold shadow-sm'
                       : 'text-foreground hover:text-primary hover:bg-accent/60'
@@ -83,19 +85,22 @@ export function Header() {
                   {isActive(item.href) && (
                     <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-8 h-0.5 bg-primary rounded-full"></div>
                   )}
+                  {!isActive(item.href) && (
+                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-primary rounded-full transition-all duration-200 group-hover:w-8"></div>
+                  )}
                 </Link>
               ))}
               
-              {/* Search integrated into navigation */}
-              <div className="ml-4 pl-4 border-l border-border">
+              {/* Integrated Search Bar */}
+              <div className="ml-6 pl-6 border-l border-border/40">
                 <div className="relative">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   <input
                     type="search"
-                    placeholder="Search..."
+                    placeholder="Search services, documents..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="pl-10 pr-4 py-2.5 w-56 text-sm border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-background shadow-sm"
+                    className="pl-10 pr-4 py-2.5 w-64 text-sm border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-background shadow-sm transition-all duration-200 focus:w-72"
                   />
                 </div>
               </div>
@@ -104,7 +109,7 @@ export function Header() {
             {/* Right Side Actions */}
             <div className="flex items-center space-x-3">
               {/* Language Selector */}
-              <Button variant="ghost" size="sm" className="hidden sm:flex hover:bg-accent text-muted-foreground">
+              <Button variant="ghost" size="sm" className="hidden sm:flex hover:bg-accent text-muted-foreground transition-colors duration-200">
                 <Globe className="h-4 w-4 mr-2" />
                 EN
               </Button>
@@ -114,7 +119,8 @@ export function Header() {
                 variant="ghost"
                 size="sm"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="lg:hidden hover:bg-accent"
+                className="lg:hidden hover:bg-accent transition-colors duration-200"
+                aria-label="Toggle navigation menu"
               >
                 {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </Button>

@@ -21,30 +21,28 @@ export function Header() {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b shadow-sm">
-      {/* Weather Advisory Banner */}
-      <div className="bg-warning text-warning-foreground border-b border-warning/20">
+    <header className="sticky top-0 z-50 bg-background shadow-sm">
+      {/* Weather Advisory Banner - Top Priority */}
+      <div className="bg-warning text-warning-foreground border-b-2 border-warning/30">
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <AlertTriangle className="h-5 w-5 flex-shrink-0" />
-              <div className="flex-1">
-                <span className="font-semibold text-sm">
-                  Weather Advisory: Strong winds expected tonight. Secure outdoor items.
-                </span>
-              </div>
+              <span className="font-semibold text-sm">
+                High wind warning in effect until 6 PM today
+              </span>
             </div>
             <div className="flex items-center space-x-2">
               <Link to="/weather-advisory">
                 <Button 
                   variant="outline" 
                   size="sm" 
-                  className="bg-warning-foreground/10 border-warning-foreground/20 text-warning-foreground hover:bg-warning-foreground/20 text-xs font-medium transition-all duration-200"
+                  className="bg-warning-foreground/10 border-warning-foreground/30 text-warning-foreground hover:bg-warning-foreground/20 text-xs font-semibold px-4 py-2 transition-all duration-200"
                 >
                   View Details
                 </Button>
               </Link>
-              <Button variant="ghost" size="sm" className="text-warning-foreground hover:text-warning-foreground/80 p-1 transition-colors duration-200">
+              <Button variant="ghost" size="sm" className="text-warning-foreground hover:text-warning-foreground/80 p-1.5">
                 <X className="h-4 w-4" />
               </Button>
             </div>
@@ -52,87 +50,83 @@ export function Header() {
         </div>
       </div>
 
-      {/* Main Header */}
-      <div className="bg-background/98 backdrop-blur-md">
+      {/* Main Navigation Header - MS.gov Style */}
+      <div className="bg-background border-b border-border/50">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-20">
-            {/* Logo and Site Title */}
-            <Link to="/" className="flex items-center space-x-4 group z-10">
+          <div className="flex items-center justify-between h-16">
+            
+            {/* Logo Section */}
+            <Link to="/" className="flex items-center space-x-3 group">
               <img 
                 src="/lovable-uploads/da15074c-676b-4afc-ac6d-5406a5a647c9.png" 
                 alt="District of Lantzville Logo" 
-                className="h-16 w-auto transition-transform group-hover:scale-105 drop-shadow-sm"
+                className="h-12 w-auto transition-transform group-hover:scale-105"
               />
               <div className="hidden sm:block">
-                <div className="text-2xl font-bold text-primary font-proxima">District of Lantzville</div>
-                <div className="text-sm text-ocean-teal font-medium">British Columbia • #LoveLifeHere</div>
+                <div className="text-lg font-bold text-primary font-proxima">District of Lantzville</div>
+                <div className="text-xs text-ocean-teal font-medium">British Columbia</div>
               </div>
             </Link>
 
-            {/* Desktop Navigation - Full Horizontal Layout */}
-            <nav className="hidden lg:flex items-center space-x-2">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className={`text-sm font-medium transition-all duration-200 px-4 py-2.5 rounded-lg relative group ${
-                    isActive(item.href)
-                      ? 'text-primary bg-accent font-semibold shadow-sm'
-                      : 'text-foreground hover:text-primary hover:bg-accent/60'
-                  }`}
-                >
-                  {item.name}
-                  {isActive(item.href) && (
-                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-8 h-0.5 bg-primary rounded-full"></div>
-                  )}
-                  {!isActive(item.href) && (
-                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-primary rounded-full transition-all duration-200 group-hover:w-8"></div>
-                  )}
-                </Link>
-              ))}
-              
-              {/* Integrated Search Bar */}
-              <div className="ml-6 pl-6 border-l border-border/40">
-                <div className="relative">
+            {/* Full-Width Desktop Navigation - MS.gov Style */}
+            <div className="hidden lg:flex items-center flex-1 justify-center ml-8">
+              <nav className="flex items-center space-x-1">
+                
+                {/* Search Bar - First in Order */}
+                <div className="relative mr-6">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   <input
                     type="search"
                     placeholder="Search services, documents..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="pl-10 pr-4 py-2.5 w-64 text-sm border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-background shadow-sm transition-all duration-200 focus:w-72"
+                    className="pl-10 pr-4 py-2 w-72 text-sm border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary bg-background transition-all duration-200"
                   />
                 </div>
-              </div>
-            </nav>
 
-            {/* Right Side Actions */}
+                {/* Navigation Links */}
+                {navigation.map((item) => (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className={`text-sm font-medium transition-all duration-200 px-4 py-3 rounded-md hover:bg-accent hover:text-primary focus:bg-accent focus:text-primary focus:outline-none focus:ring-2 focus:ring-primary/20 ${
+                      isActive(item.href)
+                        ? 'text-primary bg-accent font-semibold border-b-2 border-primary'
+                        : 'text-foreground'
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+
+            {/* Right Side - Language & Mobile Menu */}
             <div className="flex items-center space-x-3">
-              {/* Language Selector */}
-              <Button variant="ghost" size="sm" className="hidden sm:flex hover:bg-accent text-muted-foreground transition-colors duration-200">
-                <Globe className="h-4 w-4 mr-2" />
-                EN
+              <Button variant="ghost" size="sm" className="hidden sm:flex text-muted-foreground hover:text-foreground hover:bg-accent">
+                <Globe className="h-4 w-4 mr-1" />
+                <span className="text-xs">EN</span>
               </Button>
 
-              {/* Mobile Menu Toggle */}
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="lg:hidden hover:bg-accent transition-colors duration-200"
+                className="lg:hidden hover:bg-accent p-2"
                 aria-label="Toggle navigation menu"
               >
-                {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
               </Button>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Enhanced Mobile Menu */}
+      {/* Enhanced Mobile Menu - MS.gov Style */}
       {isMenuOpen && (
-        <div className="lg:hidden border-t bg-background/98 backdrop-blur-md shadow-lg">
-          <div className="px-4 pt-4 pb-6 space-y-1">
+        <div className="lg:hidden bg-background border-t border-border/50 shadow-lg">
+          <div className="container mx-auto px-4 py-4">
+            
             {/* Mobile Search */}
             <div className="mb-4">
               <div className="relative">
@@ -142,20 +136,20 @@ export function Header() {
                   placeholder="Search services, documents..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 pr-4 py-3 w-full text-sm border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent shadow-sm"
+                  className="pl-10 pr-4 py-3 w-full text-sm border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
                 />
               </div>
             </div>
             
-            {/* Mobile Navigation */}
-            <div className="space-y-1">
+            {/* Mobile Navigation Links */}
+            <nav className="space-y-1">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`block px-4 py-3.5 text-base font-medium rounded-lg transition-all duration-200 ${
+                  className={`block px-4 py-3 text-base font-medium rounded-md transition-all duration-200 ${
                     isActive(item.href)
-                      ? 'text-primary bg-accent font-semibold shadow-sm'
+                      ? 'text-primary bg-accent font-semibold border-l-4 border-primary'
                       : 'text-foreground hover:text-primary hover:bg-accent/70'
                   }`}
                   onClick={() => setIsMenuOpen(false)}
@@ -163,10 +157,10 @@ export function Header() {
                   {item.name}
                 </Link>
               ))}
-            </div>
+            </nav>
             
             {/* Mobile Language Selector */}
-            <div className="pt-4 border-t border-border mt-4">
+            <div className="mt-4 pt-4 border-t border-border">
               <Button variant="ghost" className="w-full justify-start text-muted-foreground hover:bg-accent">
                 <Globe className="h-4 w-4 mr-3" />
                 English

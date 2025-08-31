@@ -4,6 +4,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { PageBanner } from "@/components/ui/page-banner";
+import formsBanner from "@/assets/forms-banner.jpg";
 
 const buildingForms = [
   {
@@ -141,20 +143,13 @@ function FormCard({ form }: { form: any }) {
 export default function Forms() {
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className="bg-primary text-primary-foreground py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Forms & Applications
-            </h1>
-            <p className="text-xl opacity-90">
-              Access all municipal forms, permits, and applications. 
-              Many forms can be filled out online or downloaded as PDFs.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Page Banner */}
+      <PageBanner
+        title="Forms & Applications"
+        subtitle="Access all municipal forms, permits, and applications. Many forms can be filled out online or downloaded as PDFs."
+        backgroundImage={formsBanner}
+        height="lg"
+      />
 
       <div className="container mx-auto px-4 py-12">
         {/* Search */}

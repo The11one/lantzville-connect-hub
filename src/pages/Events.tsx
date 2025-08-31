@@ -4,6 +4,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { PageBanner } from "@/components/ui/page-banner";
+import eventsBanner from "@/assets/events-banner.jpg";
 
 const events = [
   {
@@ -147,20 +149,13 @@ function EventCard({ event }: { event: any }) {
 export default function Events() {
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className="bg-primary text-primary-foreground py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Community Events
-            </h1>
-            <p className="text-xl opacity-90">
-              Stay connected with what's happening in Lantzville. 
-              From council meetings to community celebrations.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Page Banner */}
+      <PageBanner
+        title="Community Events"
+        subtitle="Stay connected with what's happening in Lantzville. From council meetings to community celebrations."
+        backgroundImage={eventsBanner}
+        height="lg"
+      />
 
       <div className="container mx-auto px-4 py-12">
         {/* Filters */}

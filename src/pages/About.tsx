@@ -2,6 +2,8 @@ import { Users, MapPin, History, Award, TreePine, Waves } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import { PageBanner } from "@/components/ui/page-banner";
+import aboutBanner from "@/assets/about-banner.jpg";
 
 const stats = [
   { label: "Population", value: "7,000+", icon: Users },
@@ -58,20 +60,13 @@ const leadership = [
 export default function About() {
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className="bg-primary text-primary-foreground py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              About Lantzville
-            </h1>
-            <p className="text-xl opacity-90">
-              A vibrant coastal community where natural beauty meets 
-              small-town charm and community spirit.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Page Banner */}
+      <PageBanner
+        title="About Lantzville"
+        subtitle="A vibrant coastal community where natural beauty meets small-town charm and community spirit."
+        backgroundImage={aboutBanner}
+        height="lg"
+      />
 
       {/* Stats Section */}
       <section className="py-16">

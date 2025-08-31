@@ -4,6 +4,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import { PageBanner } from "@/components/ui/page-banner";
+import councilBanner from "@/assets/council-banner.jpg";
 
 const councilMembers = [
   {
@@ -78,20 +80,13 @@ const pastMeetings = [
 export default function Council() {
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className="bg-primary text-primary-foreground py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Mayor and Council
-            </h1>
-            <p className="text-xl opacity-90">
-              Serving the community with transparency, accountability, and dedication 
-              to making Lantzville a great place to live, work, and play.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Page Banner */}
+      <PageBanner
+        title="Mayor and Council"
+        subtitle="Serving the community with transparency, accountability, and dedication to making Lantzville a great place to live, work, and play."
+        backgroundImage={councilBanner}
+        height="lg"
+      />
 
       <div className="container mx-auto px-4 py-12">
         <Tabs defaultValue="meetings" className="w-full">
